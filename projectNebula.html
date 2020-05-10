@@ -136,20 +136,8 @@ public class GenericObjectPool
 {
     #region
     private static GenericObjectPool instance;
-
     private GenericObjectPool() { }
-
-    public static GenericObjectPool Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new GenericObjectPool();
-            }
-            return instance;
-        }
-    }
+    public static GenericObjectPool Instance { get { return instance ?? (instance = new GenericObjectPool()); } }
     #endregion Singleton
 
     Dictionary&lt;System.Type, Queue&lt;IPoolable&gt;&gt; pool = new Dictionary&lt;System.Type, Queue&lt;IPoolable&gt;&gt;();
