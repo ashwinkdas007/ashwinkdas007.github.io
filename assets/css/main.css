@@ -4142,3 +4142,10 @@ input, select, textarea {
 		}
 
 	}
+
+.anchor {
+	display: block;
+	height: 3.8em; /* this is the height of your header */
+	margin-top: -3.8em; /* this is again negative value of the height of your header */
+	visibility: hidden;
+}
