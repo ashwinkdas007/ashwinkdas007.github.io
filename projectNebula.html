@@ -136,11 +136,11 @@ protected override void HitTarget(IDamagable targetHit, string layerName)
 <pre><code class="language-csharp">
 public class GenericObjectPool
 {
-    #region
+    #region Singleton
     private static GenericObjectPool instance;
     private GenericObjectPool() { }
     public static GenericObjectPool Instance { get { return instance ?? (instance = new GenericObjectPool()); } }
-    #endregion Singleton
+    #endregion
 
     Dictionary&lt;System.Type, Queue&lt;IPoolable&gt;&gt; pool = new Dictionary&lt;System.Type, Queue&lt;IPoolable&gt;&gt;();
 
