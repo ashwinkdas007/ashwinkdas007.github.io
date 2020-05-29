@@ -137,12 +137,12 @@ Type currentType = GetType("VNtyEngine.Character.UserGenerated." + this.ExactFil
 
 List&lt;FieldInfo&gt; uniqueFields;
 uniqueFields = currentType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).ToList&lt;FieldInfo&gt;();
-
+object instance = Activator.CreateInstance(currentType);
 //loop through all the field info and find all the fields and their values.
 for (int i = 0; i < uniqueFields.Count; ++i)
 {
 	CharacterClassFieldValue val = CharacterClassFieldValue.GetClassField(uniqueFields[i], currentType, 
-									uniqueFields[i].GetValue(Activator.CreateInstance(currentType)));
+									uniqueFields[i].GetValue(instance));
 	Fields.Add(val);
 }
 								</code></pre>
